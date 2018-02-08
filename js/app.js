@@ -1,28 +1,28 @@
-  var elem_destino;
-  function comenzar(){
-    var imagenes = document.querySelectorAll('#cajaimagenes img') ;
-    // console.log(imagenes);
-    for(var i=0; i<imagenes.length; i++){
-      imagenes[i].addEventListener("dragstart", comenzando_arrastrar, false) ;
-    }
-     elem_destino = document.getElementById("container_collage") ;
-    elem_destino.addEventListener("dragenter", function(e){
-      e.preventDefault() ; }, false);
-    elem_destino.addEventListener("dragover", function(e){
-      e.preventDefault() ; }, false);
-    elem_destino.addEventListener("drop", soltado, false)
+var elemDestino;
+function comenzar() {
+  var imagenes = document.querySelectorAll('#cajaimagenes img');
+  // console.log(imagenes);
+  for (var i = 0; i < imagenes.length; i++) {
+    imagenes[i].addEventListener('dragstart', comenzandoArrastrar, false);
   }
 
-  function comenzando_arrastrar(e){
-    var elemento = e.target;
-    e.dataTransfer.setData("text", elemento.getAttribute("id"));
+  function comenzandoArrastrar(ev) {
+    var elemento = ev.target;
+    ev.dataTransfer.setData('text', elemento.getAttribute('id'));
   }
+}
 
-  function soltado(e){
-    e.preventDefault();
-    var id = e.dataTransfer.getData("text");
-    var src = document.getElementById(id).src;
-    elem_destino.innerHtml = "<img src='" + src + "'>"
-  }
+window.addEventListener('load', comenzar, false);
 
-  window.addEventListener("load", comenzar, false);
+function prevent(ev) {
+  ev.preventDefault();
+}
+
+
+function soltado(ev) {
+  ev.preventDefault();
+  var id = ev.dataTransfer.getData('text');
+  var src = document.getElementById(id).src;
+  ev.target.style.background = 'url("' + src + '")';
+  // ev.target.innerHTML = '<img src=' + src + '>';
+}
