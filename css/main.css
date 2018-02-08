@@ -1,5 +1,5 @@
 body{
- box-sizing: border-box; 
+ box-sizing: border-box;
 }
 
 div {
@@ -25,6 +25,6 @@ div {
 }
 
 #cajaimagenes img {
- width: 25%;
- height: 25%;
+ width:20%;
+ height: 20%;
 }
