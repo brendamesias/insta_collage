@@ -5,13 +5,13 @@
     for(var i=0; i<imagenes.length; i++){
       imagenes[i].addEventListener("dragstart", comenzando_arrastrar, false) ;
     }
-    var elem_destino = document.getElementById("container_collage") ;
+     elem_destino = document.getElementById("container_collage") ;
     elem_destino.addEventListener("dragenter", function(e){
       e.preventDefault() ; }, false);
-    elem_destino.addEventListener("dragenter", function(e){
+    elem_destino.addEventListener("dragover", function(e){
       e.preventDefault() ; }, false);
     elem_destino.addEventListener("drop", soltado, false)
-  };
+  }
 
   function comenzando_arrastrar(e){
     var elemento = e.target;
