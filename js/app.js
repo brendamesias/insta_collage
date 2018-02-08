@@ -1,9 +1,8 @@
-$(document).ready(function() {
-  
+  var elem_destino;
   function comenzar(){
     var imagenes = document.querySelectorAll('#cajaimagenes img') ;
     // console.log(imagenes);
-    for(var i=0; imagenes; i++){
+    for(var i=0; i<imagenes.length; i++){
       imagenes[i].addEventListener("dragstart", comenzando_arrastrar, false) ;
     }
     var elem_destino = document.getElementById("container_collage") ;
@@ -16,7 +15,7 @@ $(document).ready(function() {
 
   function comenzando_arrastrar(e){
     var elemento = e.target;
-    e.dataTransfer.setData("text", elemento.getSttribute("id"));
+    e.dataTransfer.setData("text", elemento.getAttribute("id"));
   }
 
   function soltado(e){
@@ -27,5 +26,3 @@ $(document).ready(function() {
   }
 
   window.addEventListener("load", comenzar, false);
-
-});
